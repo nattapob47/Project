@@ -1,0 +1,42 @@
+﻿@page
+@model FinalProject.Pages.IndexModel
+@{
+    ViewData["Title"] = "Email List";
+}
+
+<h1>Email List</h1>
+
+@if (Model.listEmails.Count == 0)
+{
+    <p>No emails found for this user.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Subject</th>
+            <th>Message</th>
+            <th>Date</th>
+            <th>Is Read</th>
+            <th>Sender</th>
+            <th>Receiver</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var email in Model.listEmails)
+        {
+            <tr>
+                <td>@email.EmailID</td>
+                <td>@email.EmailSubject</td>
+                <td>@email.EmailMessage</td>
+                <td>@email.EmailDate</td>
+                <td>@email.EmailIsRead</td>
+                <td>@email.EmailSender</td>
+                <td>@email.EmailReceiver</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
